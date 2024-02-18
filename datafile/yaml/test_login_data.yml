@@ -1,0 +1,63 @@
+NewBee:
+    - case_id: api_01
+      module: 登录
+      case_des: 成功登录
+      req_method: POST
+      req_url: http://47.99.134.126:28019/api/v1/user/login
+      header:
+          Content-Type: application/json
+      data:
+          loginName: 18151104556
+          passwordMd5: E10ADC3949BA59ABBE56E057F20F883E
+      expectation:
+          resultCode: 200
+          message: SUCCESS
+          data: null
+      status: 200
+    - case_id: api_02
+      module: 登录
+      case_des: 错误的登录密码
+      req_method: POST
+      req_url: http://47.99.134.126:28019/api/v1/user/login
+      header:
+        Content-Type: application/json
+      data:
+        loginName: 18151104559
+        passwordMd5: F1887D3F9E6EE7A32FE5E76F4AB80D63
+      expectation:
+        resultCode: 500
+        message: 登录失败！
+        data: null
+      status: 200
+    - case_id: api_03
+      module: 注册
+      case_des: 注册成功
+      req_method: POST
+      req_url: http://47.99.134.126:28019/api/v1/user/register
+      header:
+        Content-Type: application/json
+      data:
+        loginName: 18151104560
+        password: 123451
+      expectation:
+        resultCode: 200
+        message: SUCCESS
+        data: null
+      status: 200
+    - case_id: api_04
+      module: 注册
+      case_des: 手机号格式错误注册失败
+      req_method: POST
+      req_url: http://47.99.134.126:28019/api/v1/user/register
+      header:
+        Content-Type: application/json
+      data:
+        loginName: 123456789
+        password: 123456
+      expectation:
+        resultCode: 500
+        message: 请输入正确的手机号！
+        data: null
+      status: 200
+
+
