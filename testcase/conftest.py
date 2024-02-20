@@ -57,15 +57,15 @@ def send_request(method, url, data=None, headers=None):
 def get_token(data):
     import json
     values = json.dumps(data)
-    token1 = requests.request(method='POST', url='http://47.99.134.126:28019/api/v1/user/login',
-                              headers={'Content-Type': 'application/json'}, data=values)
+    token1 = requests.post(url='http://47.99.134.126:28019/api/v1/user/login',
+                           headers={'Content-Type': 'application/json'}, data=values)
     token_value = json.loads(token1.text)['data']
     return token_value
 
 
-if __name__ == '__main__':
-    a = get_yaml_value(yaml_path, case_id='api_01')
-    # print(a[0])
-    # print(type(a[0]))
-    token = get_token(a[0]['data'])
-    print(token)
+# if __name__ == '__main__':
+#     a = get_yaml_value(yaml_path, case_id='api_01')
+#     # print(a[0])
+#     # print(type(a[0]))
+#     token = get_token(a[0]['data'])
+#     print(token)

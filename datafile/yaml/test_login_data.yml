@@ -59,5 +59,22 @@ NewBee:
         message: 请输入正确的手机号！
         data: null
       status: 200
-
+    - case_id: api_05
+      module: 用户
+      case_des: 获取用户信息
+      req_method: GET
+      req_url: http://47.99.134.126:28019/api/v1/user/info
+      expectation:
+        resultCode: 200
+        message: SUCCESS
+        data:
+          nickName: 18151104556
+          loginName: 18151104556
+          introduceSign: 随新所欲，蜂富多彩
+    - case_id: api_06
+      module: 首页
+      case_des: 打开首页
+      req_method: GET
+      req_url: http://47.99.134.126:28019/api/v1/index-infos
+      status: 200
 
